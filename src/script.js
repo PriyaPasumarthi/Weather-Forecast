@@ -48,8 +48,8 @@ function displayForecast(response) {
                     width="42"
                 />
                 <div class="weather-forecast-temperatures">
-                    <span class="weather-forecast-temperature-max"> ${Math.round(lis[i].main.temp_max)}</span>
-                    <span class="weather-forecast-temperature-min"> ${Math.round(lis[i].main.temp_min)} </span>
+                    <span class="weather-forecast-temperature-max"> ${Math.round(lis[i].main.temp_max)}°</span>
+                    <span class="weather-forecast-temperature-min"> ${Math.round(lis[i].main.temp_min)}° </span>
                 </div>
             </div>`
     }
@@ -148,6 +148,13 @@ let celsius = null;
 let sea = document.getElementById('search');
 let curr = document.getElementById('current');
 sea.addEventListener('click', forecast);
+user.addEventListener('keypress',function(event){
+    if(event.key=='Enter')
+    {
+        event.preventDefault();
+        sea.click();
+    }
+})
 curr.addEventListener('click', present);
 
 let fahr = document.getElementById("fah");
